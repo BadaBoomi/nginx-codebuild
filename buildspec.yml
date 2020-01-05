@@ -26,6 +26,7 @@ phases:
       - echo Building the Docker image...
       - docker --version
       - lsb_release -a
+      - docker info
       - docker build -t $IMAGE_URI .
   post_build:
     commands:
