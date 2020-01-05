@@ -11,8 +11,8 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      aws/codebuild/standard: 2.0
+    commands:
+      - docker --version
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -24,7 +24,6 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker --version
       - docker build -t $IMAGE_URI .
   post_build:
     commands:
