@@ -13,9 +13,6 @@ phases:
   install:
     runtime-versions:
       docker: 18
-  commands:
-      - docker --version
-      - service docker status
   pre_build:
     commands:
       - echo Logging in to Amazon ECR...
@@ -27,6 +24,8 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
+      - docker --version
+      - service docker status
       - docker build -t $IMAGE_URI .
   post_build:
     commands:
